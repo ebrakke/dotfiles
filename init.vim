@@ -3,10 +3,13 @@
 " ##############################################
 
 set shell=/bin/zsh
-let mapleader = "\<Space>"
+let mapleader = ","
 
 " Set compatibility to Vim only.
 set nocompatible
+
+" Set autowrite for vim-go plugin
+set autowrite
 
 " For plug-ins to load correctly.
 syntax on
@@ -57,6 +60,7 @@ Plug 'derekwyatt/vim-scala'                      " Scala
 Plug 'leafgarland/typescript-vim'                " TypeScript
 "Plug 'peitalin/vim-jsx-typescript'               " TSX / JSX
 Plug 'maxmellon/vim-jsx-pretty'                  " TSX / JSX
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " tools
 Plug 'jreybert/vimagit'
@@ -94,7 +98,7 @@ colorscheme snazzy
 " # FZF
 " ##############################################
 
-nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 "autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
@@ -339,6 +343,12 @@ let g:vimwiki_global_ext = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_frontmatter = 1
+
+"leader commands
+nnoremap <leader>w :w<cr>
+nnoremap <leader>x :x<cr>
+nnoremap <leader>q :q<cr>
+inoremap jk <esc>
 
 " ##############################################
 " # Autocommands
