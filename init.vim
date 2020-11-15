@@ -33,6 +33,8 @@ call plug#begin('~/.vim/plugged')
 " Color Schemes
 Plug 'junegunn/seoul256.vim'
 Plug 'connorholyday/vim-snazzy'
+Plug 'franbach/miramare'
+Plug 'chriskempson/base16-vim'
 
 " GUI enhancements
 Plug 'itchyny/lightline.vim'
@@ -56,11 +58,12 @@ Plug 'godlygeek/tabular'                         " Markdown support
 Plug 'plasticboy/vim-markdown'                   " Markdown
 Plug 'reasonml-editor/vim-reason-plus'           " ReasonML
 Plug 'rust-lang/rust.vim'                        " Rust
-Plug 'derekwyatt/vim-scala'                      " Scala
+"Plug 'derekwyatt/vim-scala'                      " Scala
 Plug 'leafgarland/typescript-vim'                " TypeScript
 "Plug 'peitalin/vim-jsx-typescript'               " TSX / JSX
 Plug 'maxmellon/vim-jsx-pretty'                  " TSX / JSX
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'hashivim/vim-terraform'
 
 " tools
 Plug 'jreybert/vimagit'
@@ -79,7 +82,11 @@ call plug#end()
 set termguicolors
 set t_Co=256
 set background=dark
-colorscheme snazzy
+let g:miramare_enable_italic = 1
+let g:miramare_disable_italic_comment = 1
+colorscheme miramare
+nnoremap <Leader>c :colorscheme base16-gruvbox-light-hard<CR>
+nnoremap <Leader>d :colorscheme miramare<CR>
 
 " -- Seoul256 Dark --
 "   Range:   233 (darkest) ~ 239 (lightest)
@@ -119,7 +126,7 @@ let g:coc_global_extensions = [
   \ 'coc-explorer',
   \ 'coc-eslint',
   \ 'coc-tsserver',
-  \ 'coc-metals',
+  "\ 'coc-metals',
   \ 'coc-json',
   \ 'coc-floaterm',
   \ ]
