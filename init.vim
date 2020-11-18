@@ -82,11 +82,9 @@ call plug#end()
 set termguicolors
 set t_Co=256
 set background=dark
-let g:miramare_enable_italic = 1
-let g:miramare_disable_italic_comment = 1
-colorscheme miramare
+colorscheme base16-default-dark
 nnoremap <Leader>c :colorscheme base16-gruvbox-light-hard<CR>
-nnoremap <Leader>d :colorscheme miramare<CR>
+nnoremap <Leader>d :colorscheme base16-default-dark<CR>
 
 " -- Seoul256 Dark --
 "   Range:   233 (darkest) ~ 239 (lightest)
@@ -350,6 +348,9 @@ let g:vimwiki_global_ext = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_frontmatter = 1
+
+" Normal copy
+vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
 
 "leader commands
 nnoremap <leader>w :w<cr>
