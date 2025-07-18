@@ -5,8 +5,8 @@ BACKUP_DIR := $(HOME)/.dotfiles_backup
 UNAME := $(shell uname)
 
 # OS-specific file lists
-COMMON_FILES := tmux.conf zprofile
-MACOS_FILES := aerospace.toml
+COMMON_FILES := .tmux.conf .zprofile
+MACOS_FILES := .aerospace.toml
 LINUX_FILES := 
 
 # Determine which files to install based on OS
@@ -40,10 +40,10 @@ endif
 install: backup
 	@echo "Installing dotfiles for $(UNAME)..."
 	@mkdir -p $(HOME)/.config
-	@ln -sf $(DOTFILES_DIR)/tmux.conf $(HOME)/.tmux.conf
-	@ln -sf $(DOTFILES_DIR)/zprofile $(HOME)/.zprofile
+	@ln -sf $(DOTFILES_DIR)/.tmux.conf $(HOME)/.tmux.conf
+	@ln -sf $(DOTFILES_DIR)/.zprofile $(HOME)/.zprofile
 ifeq ($(UNAME), Darwin)
-	@ln -sf $(DOTFILES_DIR)/aerospace.toml $(HOME)/.aerospace.toml
+	@ln -sf $(DOTFILES_DIR)/.aerospace.toml $(HOME)/.aerospace.toml
 endif
 	@rm -rf $(HOME)/.config/nvim
 	@ln -sf $(DOTFILES_DIR)/nvim $(HOME)/.config/nvim
